@@ -14,7 +14,7 @@ class GameOfNim(Game):
         for x in range(len(self.board)):
             for y in range(1, self.board[x] + 1):
                 validMoves.append((x, y))
-        self.initial = GameState(to_move='MIN', utility=None, board=board, moves=validMoves)
+        self.initial = GameState(to_move='MIN', utility = None, board = board, moves = validMoves)
 
     #
     def actions(self, state):
