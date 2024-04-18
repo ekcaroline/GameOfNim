@@ -31,6 +31,9 @@ class GameOfNim(Game):
         
         currentBoard = state.board.copy()
         newMoves = []
+        index, amount = move
+        currentBoard[index - 1] -= amount 
+    
         
         for x in range(len(currentBoard)):
             for y in range(1, currentBoard[x] + 1):
