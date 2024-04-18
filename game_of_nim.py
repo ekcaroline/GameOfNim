@@ -13,7 +13,7 @@ class GameOfNim(Game):
         # Creates initial game state
         for x in range(len(self.board)):
             for y in range(1, self.board[x] + 1):
-                validMoves.append((self.board))
+                validMoves.append((x, y))
         self.initial = GameState(to_move='MAX', utility=None, board=board, moves=validMoves)
 
     #
@@ -31,13 +31,13 @@ class GameOfNim(Game):
         
         currentBoard = state.board.copy()
         newMoves = []
-        index, amount = move
+        index, amount = move[0], move[1]
         currentBoard[index] -= amount 
     
         
         for x in range(len(currentBoard)):
             for y in range(1, currentBoard[x] + 1):
-                newMoves.append(currentBoard)
+                newMoves.append((x, y))
         return GameState(to_move = ('MAX' if state.to_move == 'MIN' else 'MIN'),
                          utility = self.utility(currentBoard, state.to_move), 
                          board = currentBoard, moves = newMoves)
